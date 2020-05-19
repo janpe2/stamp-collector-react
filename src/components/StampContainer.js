@@ -19,13 +19,13 @@ export class StampContainer extends Component {
     render() {
         const stamp = this.props.stamp;
         return (
-            <div style={{borderBottom: '2px solid white'}}>
-                <div className='StampContainerHeader' onClick={() => this.headerClicked()} style={{cursor: 'pointer'}}>
+            <div>
+                <div className='StampContainerHeader' onClick={() => this.headerClicked()}>
                     { stamp.name }
                 </div> 
-                <div hidden={this.state.showFull} onClick={() => this.headerClicked()}>
+                <div hidden={!this.state.showFull}>
                     <StampContainerImage imageUrl={stamp.imageUrl}/>
-                    <StampContainerData name={stamp.name} yearPublished={stamp.yearPublished} isStamped={'' + stamp.isStamped}/>
+                    <StampContainerData stamp={stamp}/>
                 </div>
             </div>
         )

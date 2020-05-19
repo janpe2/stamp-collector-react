@@ -2,9 +2,10 @@ import React, { Component } from 'react'
 
 export class StampContainerData extends Component {
     render() {
+        let stamp = this.props.stamp;
         return (
             <div>
-                <p>{this.props.name}<br/>{this.props.yearPublished}<br/>{this.props.isStamped}</p>
+                <p>{stamp.name}<br/>{stamp.yearPublished}<br/>{'' + stamp.isStamped}</p>
             </div>
         )
     }

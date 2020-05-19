@@ -24,7 +24,7 @@ function initDataManager() {
     stampCollection.push(new Stamp(
         'Danmark post', 
         1945, 
-        false, 
+        true, 
         'https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/DenmarkStamp2.jpg/115px-DenmarkStamp2.jpg'));
 
 }
