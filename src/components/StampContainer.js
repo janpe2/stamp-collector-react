@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import StampContainerImage from './StampContainerImage'
 import StampContainerData from './StampContainerData'
+import PropTypes from 'prop-types'
+import './StampContainer.css'
 
 export class StampContainer extends Component {
     constructor() {
@@ -17,19 +19,33 @@ export class StampContainer extends Component {
     }
 
     render() {
-        const stamp = this.props.stamp;
+        const {name, imageUrl} = this.props.stamp;
         return (
-            <div>
+            <div className='StampContainer'>
                 <div className='StampContainerHeader' onClick={() => this.headerClicked()}>
-                    { stamp.name }
+                    { name }
                 </div> 
                 <div hidden={!this.state.showFull}>
-                    <StampContainerImage imageUrl={stamp.imageUrl}/>
-                    <StampContainerData stamp={stamp}/>
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <StampContainerImage imageUrl={imageUrl}/>
+                                </td>
+                                <td>
+                                    <StampContainerData stamp={this.props.stamp}/>                                   
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         )
     }
+}
+
+StampContainer.propTypes = {
+    stamp: PropTypes.object.isRequired
 }
 
 export default StampContainer

@@ -1,0 +1,12 @@
+.StampContainer {
+    background-color: rgb(114, 169, 223);
+    border: 1px solid black;
+    margin: 2px;
+    border-radius: 10px;
+}
+
+.StampContainerHeader {
+    cursor: pointer;
+}
+
+

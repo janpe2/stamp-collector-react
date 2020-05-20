@@ -1,0 +1,30 @@
+
+.tableLabel1 {
+    text-align: right;
+    padding-left: 0.50em;
+    padding-right: 0.40em;
+    background-color: var(--table-main-color-1);
+}
+
+.tableLabel2 {
+    text-align: right;
+    padding-left: 0.50em;
+    padding-right: 0.40em;
+    background-color: var(--table-main-color-2);
+}
+
+.tableData1 {
+    text-align: left;
+    border: 1px solid rgb(83, 83, 83);
+    background-color: var(--table-main-color-1);
+    padding-left: 0.50em;
+    padding-right: 0.50em;
+}
+
+.tableData2 {
+    text-align: left;
+    border: 1px solid rgb(83, 83, 83);
+    background-color: var(--table-main-color-2);
+    padding-left: 0.50em;
+    padding-right: 0.50em;
+}

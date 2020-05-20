@@ -1,8 +1,21 @@
+* {
+    --table-main-color-1: rgb(100, 185, 160);
+    --table-main-color-2: rgb(199, 221, 103);
+}
+
 div {
     margin: 1px;
 }
 
-.StampContainerHeader {
-    cursor: pointer;
-    border-top: 2px solid white;
+table {
+    border-spacing: 2px;
+    border-collapse: separate;
+}
+
+
+.stampContainerImg {
+    border-radius: 10px;
+    border: 1px solid black;
+    padding: 1em;
+    background-color: rgb(177, 175, 175);
 }

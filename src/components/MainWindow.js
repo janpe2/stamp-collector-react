@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import StampContainer from './StampContainer'
+import PropTypes from 'prop-types'
 
 export class MainWindow extends Component {
     render() {
@@ -11,11 +12,15 @@ export class MainWindow extends Component {
         });
 
         return (
-            <div>
+            <div style={{padding: '5px'}}>
                 {list}
             </div>
         )
     }
+}
+
+MainWindow.propTypes = {
+    stampCollection: PropTypes.array.isRequired
 }
 
 export default MainWindow

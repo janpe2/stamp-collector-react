@@ -4,7 +4,7 @@ export class Header extends Component {
     render() {
         return (
             <div>
-                <h1>Stamp Collector</h1>
+                <h1 style={{padding: '0.25em'}}>Stamp Collector</h1>
             </div>
         )
     }
