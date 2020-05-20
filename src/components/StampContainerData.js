@@ -8,27 +8,27 @@ export class StampContainerData extends Component {
         const { name, yearPublished, isStamped, country } = stamp;
         return (
             <div>
-                <table className='stampDataTable'>
+                <table className='stampDataTable col'>
                     <tbody className='stampDataTableBody'>
                         <tr>
-                            <td className='tableLabel1'>Name:</td>
-                            <td className='tableData1'>{name}</td>
+                            <td className='tableLabel1 col-1'>Name:</td>
+                            <td className='tableData1 col-4'>{name}</td>
                         </tr>
                         <tr>
-                            <td className='tableLabel2'>Published:</td>
-                            <td className='tableData2'>{yearPublished}</td>
+                            <td className='tableLabel2 col-1'>Published:</td>
+                            <td className='tableData2 col-4'>{yearPublished}</td>
                         </tr>
                         <tr>
-                            <td className='tableLabel1'>Is Stamped:</td>
-                            <td className='tableData1'>{'' + isStamped}</td>
+                            <td className='tableLabel1 col-1'>Is Stamped:</td>
+                            <td className='tableData1 col-4'>{'' + isStamped}</td>
                         </tr>
                         <tr>
-                            <td className='tableLabel2'>Country:</td>
-                            <td className='tableData2'>{country}</td>
+                            <td className='tableLabel2 col-1'>Country:</td>
+                            <td className='tableData2 col-4'>{country}</td>
                         </tr>
                         <tr>
-                            <td className='tableLabel1'>Price:</td>
-                            <td className='tableData1'>{stamp.getPriceString()}</td>
+                            <td className='tableLabel1 col-1'>Price:</td>
+                            <td className='tableData1 col-4'>{stamp.getPriceString()}</td>
                         </tr>
                     </tbody>
                 </table>

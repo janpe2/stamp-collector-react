@@ -10,17 +10,14 @@ function App() {
   initDataManager();
 
   return (
-    <div className="App">
-      <div className="container">
-        <div style={{backgroundColor: 'darksalmon'}}>
-            <Header/>
-        </div>
-        <div style={{backgroundColor: '#A4F2FF'}}>
-            <MainWindow stampCollection={stampCollection}/>
-            
+      <div className="App">
+        <div className="container">
+          <div>
+              <Header/>
+              <MainWindow stampCollection={stampCollection} />
+          </div>
         </div>
       </div>
-    </div>
   );
 }
 

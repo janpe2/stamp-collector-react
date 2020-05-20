@@ -25,14 +25,14 @@ export class StampContainer extends Component {
                 <div className='StampContainerHeader' onClick={() => this.headerClicked()}>
                     { name }
                 </div> 
-                <div hidden={!this.state.showFull}>
-                    <table>
+                <div hidden={!this.state.showFull} className='stampDataDiv'>
+                    <table width='100%' className='stampDataTable'>
                         <tbody>
                             <tr>
-                                <td>
+                                <td width='50%'>
                                     <StampContainerImage imageUrl={imageUrl}/>
                                 </td>
-                                <td>
+                                <td width='50%'>
                                     <StampContainerData stamp={this.props.stamp}/>                                   
                                 </td>
                             </tr>

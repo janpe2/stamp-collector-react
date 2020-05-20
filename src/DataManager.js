@@ -34,7 +34,13 @@ function initDataManager() {
         'https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/DenmarkStamp2.jpg/115px-DenmarkStamp2.jpg',
         'Denmark',
         20.00));
-
+    stampCollection.push(new Stamp(
+        'US National Guard', 
+        1942, 
+        false, 
+        'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQlZI65mspXc_eQdhuGQxPhx1lpdGBXbFkX7wpep6UoWyo5K5H_&usqp=CAU',
+        'USA',
+        0.03));        
 }
 
 export default stampCollection;

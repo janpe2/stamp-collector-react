@@ -12,10 +12,19 @@ table {
     border-collapse: separate;
 }
 
+.mainDiv {
+    background-color: #A4F2FF;
+}
 
-.stampContainerImg {
-    border-radius: 10px;
-    border: 1px solid black;
-    padding: 1em;
-    background-color: rgb(177, 175, 175);
+.routerLink {
+    color: black;
+    background-color: rgb(105, 153, 243);
+    padding: 3px 10px 3px 10px;
+    text-decoration: none;
+}
+
+.routerLink:hover {
+    color: white;
+    background-color: rgb(70, 117, 204);
+    text-decoration: none;
 }
