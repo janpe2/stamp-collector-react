@@ -1,12 +1,14 @@
 .StampContainer {
     background-color: rgb(114, 169, 223);
     border: 1px solid black;
-    margin: 2px;
-    border-radius: 10px;
+    margin-bottom: 5px;
+    border-radius: 12px;
 }
 
 .StampContainerHeader {
     cursor: pointer;
+    background-image: linear-gradient(rgb(186, 204, 223), rgb(114, 169, 223));
+    border-radius: 12px;
 }
 
 .stampDataTable {

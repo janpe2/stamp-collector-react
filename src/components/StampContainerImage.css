@@ -1,8 +1,12 @@
 
 .stampContainerImg {
     border-radius: 10px;
-    border: 1px solid black;
+    border-top: 1px solid rgb(49, 49, 49);
+    border-left: 1px solid rgb(49, 49, 49);
+    border-right: 1px solid rgb(235, 234, 234);
+    border-bottom: 1px solid rgb(235, 234, 234);
     padding: 1em;
     background-color: rgb(177, 175, 175);
+    text-align: center;
 }
 

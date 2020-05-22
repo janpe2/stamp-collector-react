@@ -7,8 +7,27 @@ import SummaryContainer from './pages/SummaryContainer'
 import AddStampContainer from './pages/AddStampContainer'
 
 export class MainWindow extends Component {
+    constructor(props) {
+        super();
+        this.state = {
+            dataManager: props.dataManager,
+            stampCollection: props.stampCollection
+        }
+    }
+
+    addStampToCollection(stamp) {
+        this.state.stampCollection.push(stamp);
+        this.updateCollection();
+    }
+
+    updateCollection() {
+        this.setState({
+            stampCollection: this.state.dataManager.stampCollection
+        });
+    }
+
     render() {
-        const stampCollection = this.props.stampCollection;
+        const stampCollection = this.state.stampCollection;
         return (
             <BrowserRouter>
                 <div className='mainDiv'>
@@ -28,8 +47,11 @@ export class MainWindow extends Component {
                     <Route path='/summary' render={props => (
                         <SummaryContainer stampCollection={stampCollection}/>
                     )} />
+
+                    <Route path='/addstamp' render={props => (
+                        <AddStampContainer addStampToCollection={this.addStampToCollection.bind(this)}/>
+                    )} />
                     
-                    <Route path='/addstamp' component={AddStampContainer} />
                     <Route path='/about' component={AboutContainer} />
                 </div>
             </BrowserRouter>
