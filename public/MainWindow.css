@@ -29,3 +29,8 @@ table {
     background-color: rgb(70, 117, 204);
     text-decoration: none;
 }
+
+.linksDiv {
+    padding-top: 1em;
+    padding-bottom: 0.50em;
+}

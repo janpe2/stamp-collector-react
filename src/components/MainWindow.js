@@ -15,15 +15,23 @@ export class MainWindow extends Component {
         }
     }
 
-    addStampToCollection(stamp) {
+    addStampToCollection = (stamp) => {
         this.state.stampCollection.push(stamp);
         this.updateCollection();
     }
 
-    updateCollection() {
+    updateCollection = () => {
         this.setState({
             stampCollection: this.state.dataManager.stampCollection
         });
+    }
+
+    deleteStampFromCollection = (id) => {
+        let manager = this.state.dataManager;
+        manager.stampCollection = manager.stampCollection.filter((element) => {
+            return element.id !== id;
+        });
+        this.updateCollection();
     }
 
     render() {
@@ -31,7 +39,7 @@ export class MainWindow extends Component {
         return (
             <BrowserRouter>
                 <div className='mainDiv'>
-                    <div style={{paddingTop: '1em', paddingBottom: '0.50em'}}>
+                    <div className='linksDiv'>
                         <Link to='/' className='routerLink'>List Stamps</Link> | {' '}
                         <Link to='/summary' className='routerLink'>Summary</Link> | {' '}
                         <Link to='/addstamp' className='routerLink'>Add Stamp</Link> | {' '}
@@ -41,7 +49,8 @@ export class MainWindow extends Component {
                 
                     { /* We must use this syntax in Route if we want to pass properties to a component */ }
                     <Route exact path='/' render={props => (
-                        <ListContainer stampCollection={stampCollection}/>
+                        <ListContainer stampCollection={stampCollection} 
+                            deleteStampFromCollection={this.deleteStampFromCollection}/>
                     )} />
 
                     <Route path='/summary' render={props => (
@@ -49,7 +58,8 @@ export class MainWindow extends Component {
                     )} />
 
                     <Route path='/addstamp' render={props => (
-                        <AddStampContainer addStampToCollection={this.addStampToCollection.bind(this)}/>
+                        <AddStampContainer addStampToCollection={this.addStampToCollection}
+                            stampCollection={stampCollection}/>
                     )} />
                     
                     <Route path='/about' component={AboutContainer} />

@@ -3,16 +3,23 @@
     border: 1px solid black;
     margin-bottom: 5px;
     border-radius: 12px;
+    margin: 0;
+    margin-bottom: 3px;
 }
 
 .StampContainerHeader {
     cursor: pointer;
     background-image: linear-gradient(rgb(186, 204, 223), rgb(114, 169, 223));
     border-radius: 12px;
+    margin: 0;
 }
 
 .stampDataTable {
     text-align: center;
 }
 
-
+.thumbnail {
+    max-height: 30px;
+    width: auto;
+    margin: 3px;
+}

@@ -55,16 +55,35 @@ export class EditStampForm extends Component {
     }
 
     handleSubmit = (event) => {
+        event.preventDefault();
         let { stampName, stampYearPublished, stampIsStamped, stampCountry, 
             stampPrice, stampImageUrl } = this.state;
-        stampPrice = parseFloat(stampPrice) || 0.00; // ensure number
-        stampIsStamped = !!stampIsStamped; // make boolean
 
-        const stamp = new Stamp(stampName, stampYearPublished, 
-            stampIsStamped, stampImageUrl, stampCountry, stampPrice);
+        stampPrice = parseFloat(stampPrice) || 0.00;
+        stampIsStamped = !!stampIsStamped; 
+        stampName = stampName || 'Stamp has no name';
+        if (!stampCountry) {
+            window.alert('No country given');
+            return;
+        }
 
-        this.props.addStampToCollection(stamp);
-        event.preventDefault();
+        this.checkImage(stampImageUrl, 
+            () => {
+                const id = this.props.stampCollection.length;
+                const stamp = new Stamp(stampName, stampYearPublished, 
+                    stampIsStamped, stampImageUrl, stampCountry, stampPrice, id);
+                this.props.addStampToCollection(stamp);
+            },
+            () => {
+                window.alert('Image is not valid');
+            });
+    }
+
+    checkImage(url, imgSuccessFunction, imgErrorFunction) {
+        let img = new Image();
+        img.onload = imgSuccessFunction;
+        img.onerror = imgErrorFunction;
+        img.src = url;
     }
 
     render() {
@@ -139,7 +158,8 @@ export class EditStampForm extends Component {
 
 EditStampForm.propTypes = {
     stamp: PropTypes.object, // optional
-    addStampToCollection: PropTypes.func.isRequired
+    addStampToCollection: PropTypes.func.isRequired,
+    stampCollection: PropTypes.array.isRequired
 }
 
 export default EditStampForm

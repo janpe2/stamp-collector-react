@@ -1,11 +1,12 @@
 class Stamp {
-    constructor(name, yearPublished, isStamped, imageUrl, country, price) {
+    constructor(name, yearPublished, isStamped, imageUrl, country, price, id) {
         this.name = name;
         this.yearPublished = yearPublished;
         this.isStamped = isStamped;
         this.imageUrl = imageUrl;
         this.country = country;
         this.price = price;
+        this.id = id;
     }
  
     getPriceString() {

@@ -19,11 +19,14 @@ export class StampContainer extends Component {
     }
 
     render() {
-        const {name, imageUrl} = this.props.stamp;
+        const stamp = this.props.stamp;
+        const {name, imageUrl} = stamp;
         return (
             <div className='StampContainer'>
                 <div className='StampContainerHeader' onClick={() => this.headerClicked()}>
-                    { name }
+                    <img src={imageUrl} alt='stamp' className='thumbnail' hidden={this.state.showFull} /> {' '}
+                    <span>{ name }</span> {' '}
+                    <span hidden={this.state.showFull}>{ stamp.getPriceString() }</span> 
                 </div> 
                 <div hidden={!this.state.showFull} className='stampDataDiv'>
                     <table width='100%' className='stampDataTable'>
@@ -33,7 +36,9 @@ export class StampContainer extends Component {
                                     <StampContainerImage imageUrl={imageUrl}/>
                                 </td>
                                 <td width='50%'>
-                                    <StampContainerData stamp={this.props.stamp}/>                                   
+                                    <StampContainerData stamp={this.props.stamp}
+                                        editStamp={this.props.editStamp}
+                                        deleteStampFromCollection={this.props.deleteStampFromCollection}/>                                   
                                 </td>
                             </tr>
                         </tbody>

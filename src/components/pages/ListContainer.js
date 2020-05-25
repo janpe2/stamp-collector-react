@@ -3,17 +3,18 @@ import PropTypes from 'prop-types'
 import StampContainer from '../StampContainer'
 
 export default class ListContainer extends Component {
-    render() {
-        let list = [];
-        let i = 0;
-        this.props.stampCollection.forEach((element) => {
-            list.push(<StampContainer stamp={element} key={i}/>);
-            i++;
+    createStampContainers() {
+        let list = this.props.stampCollection.map((stamp) => {
+            return <StampContainer stamp={stamp} key={stamp.id} 
+                deleteStampFromCollection={this.props.deleteStampFromCollection}/>;
         });
+        return list;
+    }
 
+    render() {
         return (
             <div style={{padding: '5px'}}>
-                {list}
+                {this.createStampContainers()}
             </div>
         )
     }
