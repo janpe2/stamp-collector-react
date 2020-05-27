@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import Stamp from '../../Stamp';
 import StampContainerImage from '../StampContainerImage'
+import { withRouter } from 'react-router-dom';
 import './EditStampForm.css'
 
 export class EditStampForm extends Component {
@@ -26,7 +27,7 @@ export class EditStampForm extends Component {
 
     handleStampYearChange = (event) => {
         this.setState({
-            stampYearPublished: parseInt(event.target.value),
+            stampYearPublished: parseInt(event.target.value) || 0,
         });
     }
 
@@ -69,10 +70,19 @@ export class EditStampForm extends Component {
 
         this.checkImage(stampImageUrl, 
             () => {
-                const id = this.props.stampCollection.length;
                 const stamp = new Stamp(stampName, stampYearPublished, 
-                    stampIsStamped, stampImageUrl, stampCountry, stampPrice, id);
-                this.props.addStampToCollection(stamp);
+                    stampIsStamped, stampImageUrl, stampCountry, stampPrice, 0);
+
+                if (this.props.stamp) {
+                    stamp.id = this.props.stamp.id;
+                    Object.assign(this.props.stamp, stamp);
+                    this.props.updateCollection();
+                } else {
+                    stamp.id = this.props.stampCollection.length;
+                    this.props.addStampToCollection(stamp);
+                }
+
+                this.goToMainPage();
             },
             () => {
                 window.alert('Image is not valid');
@@ -84,6 +94,14 @@ export class EditStampForm extends Component {
         img.onload = imgSuccessFunction;
         img.onerror = imgErrorFunction;
         img.src = url;
+    }
+
+    cancelClick = (event) => {
+        this.goToMainPage();
+    }
+
+    goToMainPage() {
+        this.props.history.push('/');
     }
 
     render() {
@@ -108,7 +126,8 @@ export class EditStampForm extends Component {
                             <label>Published:</label>
                         </td>
                         <td className='col-6 r'>
-                            <input type='text' value={stampYearPublished} onChange={this.handleStampYearChange}  />
+                            <input type='number' value={stampYearPublished} 
+                                onChange={this.handleStampYearChange}  />
                         </td>
                     </tr>
                     <tr>
@@ -127,7 +146,8 @@ export class EditStampForm extends Component {
                             <label>Country:</label>
                         </td>
                         <td className='col-6 r'>
-                            <input type='text' value={stampCountry} onChange={this.handleStampCountryChange}  />
+                            <input type='text' value={stampCountry} 
+                                onChange={this.handleStampCountryChange} />
                         </td>
                     </tr>
                     <tr>
@@ -135,7 +155,8 @@ export class EditStampForm extends Component {
                             <label>Price:</label>
                         </td>
                         <td className='col-6 r'>
-                            <input type='text' value={stampPrice} onChange={this.handleStampPriceChange} />
+                            <input type='number' step='0.01' min='0' value={stampPrice} 
+                                onChange={this.handleStampPriceChange} />
                         </td>
                     </tr>
                     <tr>
@@ -149,7 +170,10 @@ export class EditStampForm extends Component {
                     </tr>
                 </tbody>
                 </table>
-                <button type='submit' className='btn btn-primary' style={{marginBottom: '1em'}}>OK</button>
+                <div style={{paddingBottom: '1em'}}>
+                    <button type='submit' className='btn btn-primary'>OK</button> {' '}
+                    <button onClick={this.cancelClick} className='btn btn-secondary'>Cancel</button>
+                </div>
             </form>
             </div>
         )
@@ -158,8 +182,9 @@ export class EditStampForm extends Component {
 
 EditStampForm.propTypes = {
     stamp: PropTypes.object, // optional
-    addStampToCollection: PropTypes.func.isRequired,
-    stampCollection: PropTypes.array.isRequired
+    addStampToCollection: PropTypes.func,
+    stampCollection: PropTypes.array.isRequired,
+    updateCollection: PropTypes.func.isRequired,
 }
 
-export default EditStampForm
+export default withRouter(EditStampForm)

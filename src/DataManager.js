@@ -25,15 +25,6 @@ class DataManager {
             this.stampCollection.length));
 
         this.stampCollection.push(new Stamp(
-            'Lietuvos vaikas', 
-            1933, 
-            false, 
-            'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/363zoom.jpg/89px-363zoom.jpg',
-            'Lithuania',
-            3.00,
-            this.stampCollection.length));
-
-        this.stampCollection.push(new Stamp(
             'Danmark post', 
             1945, 
             true, 

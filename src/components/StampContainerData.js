@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import { withRouter } from 'react-router-dom';
 import './StampContainerData.css'
 
 export class StampContainerData extends Component {
     handleEditStamp = (event) => {
-        //this.props.editStamp();
+        this.props.history.push('/editstamp');
     }
 
     handleDeleteStamp = (event) => {
@@ -55,4 +56,4 @@ StampContainerData.propTypes = {
     stamp: PropTypes.object.isRequired
 }
 
-export default StampContainerData
+export default withRouter(StampContainerData)

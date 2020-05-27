@@ -7,7 +7,8 @@ export default class AddStampContainer extends Component {
         return (
             <div>
                 <EditStampForm stamp={null} stampCollection={this.props.stampCollection}
-                    addStampToCollection={this.props.addStampToCollection}/>
+                    addStampToCollection={this.props.addStampToCollection}
+                    updateCollection ={this.props.updateCollection} />
             </div>
         )
     }
@@ -16,4 +17,5 @@ export default class AddStampContainer extends Component {
 AddStampContainer.propTypes = {
     addStampToCollection: PropTypes.func.isRequired,
     stampCollection: PropTypes.array.isRequired,
+    updateCollection: PropTypes.func.isRequired,
 }

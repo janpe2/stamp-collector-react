@@ -13,6 +13,9 @@ export class StampContainer extends Component {
     }
 
     headerClicked() {
+        if (!this.state.showFull) {
+            this.props.setCurrentStamp(this.props.stamp);
+        }
         this.setState({
             showFull: !this.state.showFull
         });
@@ -37,7 +40,6 @@ export class StampContainer extends Component {
                                 </td>
                                 <td width='50%'>
                                     <StampContainerData stamp={this.props.stamp}
-                                        editStamp={this.props.editStamp}
                                         deleteStampFromCollection={this.props.deleteStampFromCollection}/>                                   
                                 </td>
                             </tr>
@@ -50,7 +52,8 @@ export class StampContainer extends Component {
 }
 
 StampContainer.propTypes = {
-    stamp: PropTypes.object.isRequired
+    stamp: PropTypes.object.isRequired,
+    setCurrentStamp: PropTypes.func.isRequired,
 }
 
 export default StampContainer

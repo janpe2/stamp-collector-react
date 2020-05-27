@@ -5,17 +5,26 @@ import ListContainer from './pages/ListContainer'
 import AboutContainer from './pages/AboutContainer'
 import SummaryContainer from './pages/SummaryContainer'
 import AddStampContainer from './pages/AddStampContainer'
+import EditStampContainer from './pages/EditStampContainer'
 
 export class MainWindow extends Component {
     constructor(props) {
         super();
         this.state = {
             dataManager: props.dataManager,
-            stampCollection: props.stampCollection
+            stampCollection: props.stampCollection,
+            currentStamp: null,
         }
     }
 
     addStampToCollection = (stamp) => {
+        // If stamps are deleted, using this.state.stampCollection.length as stamp id
+        // may produce duplicate ids. Make sure the new stamp gets a unique id.
+        let maxId = 0;
+        this.state.stampCollection.forEach((element) => {
+            maxId = Math.max(element.id, maxId);
+        });
+        stamp.id = maxId + 1;
         this.state.stampCollection.push(stamp);
         this.updateCollection();
     }
@@ -34,6 +43,12 @@ export class MainWindow extends Component {
         this.updateCollection();
     }
 
+    setCurrentStamp = (stamp) => {
+        this.setState({
+            currentStamp: stamp
+        });
+    }
+
     render() {
         const stampCollection = this.state.stampCollection;
         return (
@@ -50,7 +65,8 @@ export class MainWindow extends Component {
                     { /* We must use this syntax in Route if we want to pass properties to a component */ }
                     <Route exact path='/' render={props => (
                         <ListContainer stampCollection={stampCollection} 
-                            deleteStampFromCollection={this.deleteStampFromCollection}/>
+                            deleteStampFromCollection={this.deleteStampFromCollection}
+                            setCurrentStamp={this.setCurrentStamp} />
                     )} />
 
                     <Route path='/summary' render={props => (
@@ -59,7 +75,12 @@ export class MainWindow extends Component {
 
                     <Route path='/addstamp' render={props => (
                         <AddStampContainer addStampToCollection={this.addStampToCollection}
-                            stampCollection={stampCollection}/>
+                            stampCollection={stampCollection} updateCollection={this.updateCollection} />
+                    )} />
+
+                    <Route path='/editstamp' render={props => (
+                        <EditStampContainer updateCollection={this.updateCollection}
+                            stamp={this.state.currentStamp} stampCollection={stampCollection} />
                     )} />
                     
                     <Route path='/about' component={AboutContainer} />
