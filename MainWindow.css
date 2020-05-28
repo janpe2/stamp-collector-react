@@ -1,0 +1,36 @@
+* {
+    --table-main-color-1: rgb(100, 185, 160);
+    --table-main-color-2: rgb(199, 221, 103);
+}
+
+div {
+    margin: 1px;
+}
+
+table {
+    border-spacing: 2px;
+    border-collapse: separate;
+}
+
+.mainDiv {
+    background-color: #A4F2FF;
+    padding-bottom: 1em;
+}
+
+.routerLink {
+    color: black;
+    background-color: rgb(105, 153, 243);
+    padding: 3px 10px 3px 10px;
+    text-decoration: none;
+}
+
+.routerLink:hover {
+    color: white;
+    background-color: rgb(70, 117, 204);
+    text-decoration: none;
+}
+
+.linksDiv {
+    padding-top: 1em;
+    padding-bottom: 0.50em;
+}

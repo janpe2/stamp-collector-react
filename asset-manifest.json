@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/stamp-collector-react/static/css/main.702e7e3c.chunk.css",
+    "main.js": "/stamp-collector-react/static/js/main.c83ae179.chunk.js",
+    "main.js.map": "/stamp-collector-react/static/js/main.c83ae179.chunk.js.map",
+    "runtime-main.js": "/stamp-collector-react/static/js/runtime-main.0e800b07.js",
+    "runtime-main.js.map": "/stamp-collector-react/static/js/runtime-main.0e800b07.js.map",
+    "static/js/2.18a67e47.chunk.js": "/stamp-collector-react/static/js/2.18a67e47.chunk.js",
+    "static/js/2.18a67e47.chunk.js.map": "/stamp-collector-react/static/js/2.18a67e47.chunk.js.map",
+    "index.html": "/stamp-collector-react/index.html",
+    "precache-manifest.c18ced95608880fead01cee6ed28ba78.js": "/stamp-collector-react/precache-manifest.c18ced95608880fead01cee6ed28ba78.js",
+    "service-worker.js": "/stamp-collector-react/service-worker.js",
+    "static/css/main.702e7e3c.chunk.css.map": "/stamp-collector-react/static/css/main.702e7e3c.chunk.css.map",
+    "static/js/2.18a67e47.chunk.js.LICENSE.txt": "/stamp-collector-react/static/js/2.18a67e47.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.0e800b07.js",
+    "static/js/2.18a67e47.chunk.js",
+    "static/css/main.702e7e3c.chunk.css",
+    "static/js/main.c83ae179.chunk.js"
+  ]
+}
